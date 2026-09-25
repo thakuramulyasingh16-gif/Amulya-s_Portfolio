@@ -4,7 +4,7 @@
    Formspree, EmailJS, or your own backend), set the endpoint
    below and update handleSubmit() to POST to it.
 ========================================================= */
-const CONTACT_FORM_ENDPOINT = ""; // e.g. "https://formspree.io/f/xxxxxx"
+const CONTACT_FORM_ENDPOINT = "https://formspree.io/f/xoevlyoj"; // e.g. "https://formspree.io/f/xxxxxx"
 
 /* =========================================================
    YEAR

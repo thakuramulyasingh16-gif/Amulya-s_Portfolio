@@ -788,3 +788,94 @@ h1,h2,h3,h4{ font-family:var(--font-display); font-weight:700; letter-spacing:-0
 @media (max-width:560px){
   .back-to-top{ right:16px; bottom:16px; width:42px; height:42px; }
 }
+
+
+/* ==========================================================================
+   SAFFRON + BLACK THEME
+   ========================================================================== */
+
+:root{
+  /* Backgrounds -> near-black */
+  --bg-950: #0A0806;
+  --bg-900: #100C08;
+  --bg-800: #16110C;
+  --surface: #1A140D;
+  --surface-2: #1F180F90;
+
+  --border: rgba(255,153,51,0.14);
+  --border-strong: rgba(255,153,51,0.28);
+
+  --text-primary: #F5F0E8;
+  --text-secondary: #C2A98C;
+  --text-muted: #8A7460;
+
+  /* Saffron accent (replaces blue/cyan accents) */
+  --accent: #FF9933;
+  --accent-2: #E85D2A;
+  --accent-soft: rgba(255,153,51,0.14);
+  --accent-gradient: linear-gradient(120deg, #E85D2A 0%, #FF9933 55%, #FFC266 100%);
+
+  --success: #38D399;
+
+  --shadow-card: 0 10px 40px -12px rgba(0,0,0,0.7);
+  --shadow-glow: 0 0 0 1px rgba(255,153,51,0.22), 0 20px 60px -20px rgba(255,153,51,0.35);
+}
+
+/* Ambient background glow -> saffron instead of blue */
+body::before{
+  background:
+    radial-gradient(1100px 620px at 82% -8%, rgba(255,153,51,0.14), transparent 60%),
+    radial-gradient(900px 560px at -10% 30%, rgba(232,93,42,0.10), transparent 55%),
+    var(--bg-950);
+}
+
+.btn-primary{
+  color:#0A0806; /* dark text on bright saffron button */
+}
+
+/* ==========================================================================
+   EXTRA 3D DEPTH — project cards get a stronger tilt-ready feel
+   (your existing .project-card:hover already has translateY + shadow,
+   this adds perspective so the JS tilt effect below looks real)
+   ========================================================================== */
+.projects-grid{
+  perspective: 1400px;
+}
+
+.project-card{
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card::after{
+  content:"";
+  position:absolute; inset:0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,153,51,0.18), transparent 60%);
+  opacity:0;
+  transition:opacity .3s ease;
+  pointer-events:none;
+  border-radius:inherit;
+}
+
+.project-card:hover::after{ opacity:1; }
+
+/* Profile photo gets true 3D perspective (paired with 3d-effects.js) */
+.photo-frame{
+  perspective: 1000px;
+}
+
+.hero-photo{
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out, box-shadow .4s var(--ease);
+}
+
+/* Terminal card floats slightly off the page */
+.terminal{
+  transform: perspective(900px) rotateX(2deg);
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+
+.terminal:hover{
+  transform: perspective(900px) rotateX(0deg) translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}

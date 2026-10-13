@@ -2,35 +2,31 @@
 
 A static portfolio (HTML, CSS, JavaScript). No build step and no dependencies.
 
-## One person, three profiles
+One page that covers all three sides of the work:
 
-The page can be read as three profiles. Pick one with the circles in the hero or the switch in the header.
-
-| Profile | Link | Resume |
-| --- | --- | --- |
-| Full-Stack Developer (default) | `/` | `assets/Amulya-Pratap-Singh-Resume-FullStack.pdf` |
-| GenAI & AI-Native Full-Stack Developer | `/?lens=genai` | `assets/Amulya-Pratap-Singh-Resume-GenAI.pdf` |
-| Data Analyst & Quality Assurance | `/?lens=dataqa` | `assets/Amulya-Pratap-Singh-Resume-Data-QA.pdf` |
-
-Share the matching link with each application so the page opens in the right profile.
-
-Switching a profile changes: the headline and summary, the About text, the order of the skills and which ones are highlighted, a short note on each project, the experience highlight, and the resume that the download buttons point to. Everything else (projects, experience, education, certifications, links) stays the same.
+- **GenAI**: LLM APIs, prompt engineering, agentic workflows, AI coding tools
+- **Full-stack web**: React.js, Node.js, Express.js, MySQL, REST APIs
+- **Data analysis & QA**: one year of data validation at Iron Mountain (NAPS)
 
 ## Structure
 
 ```
-index.html            page markup (default profile is written in the HTML)
+index.html            page markup
 css/style.css         design tokens, layout, responsive rules
-js/main.js            profile data and switching, skills, count-up, form
+js/main.js            skills list, navigation, count-up numbers, contact form
 assets/               profile photo and resume PDFs
 ```
 
 ## Editing content
 
-- Profile copy, skill highlights and project notes: the `LENSES` object at the top of `js/main.js`.
-- Skill list: the `SKILLS` array in `js/main.js`.
-- Everything else is plain HTML in `index.html`.
+- Skills: the `SKILL_GROUPS` array at the top of `js/main.js`.
+- Everything else (intro, experience, projects, education, certifications) is plain HTML in `index.html`.
+- Resume button: `assets/Amulya-Pratap-Singh-Resume-GenAI.pdf`. Replace the file, or change the `href` in the hero.
 - Contact form: sends through Formspree. The endpoint is `CONTACT_FORM_ENDPOINT` in `js/main.js`.
+
+## Design
+
+A one-colour print proof: paper, one dark ink and one cyan spot colour. The photo sits on a cyan plate printed slightly out of register, and the project plates use halftone dots.
 
 ## Run locally
 
